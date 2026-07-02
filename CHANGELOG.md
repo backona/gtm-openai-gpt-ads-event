@@ -9,8 +9,7 @@ Do not edit the NEW_VERSION and VERSION_DATE fields, they will be updated automa
 
 ## [<NEW_VERSION>] - <VERSION_DATE>
 ### Added
-### Changed
-### Fixed
+- Added sha to metadata.yaml for the template.tpl
 
 ## [0.0.1] - 2026-07-02 (by @slazak)
 ### Added

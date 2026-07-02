@@ -9,5 +9,10 @@ Do not edit the NEW_VERSION and VERSION_DATE fields, they will be updated automa
 
 ## [<NEW_VERSION>] - <VERSION_DATE>
 ### Added
+### Changed
+### Fixed
+
+## [0.0.1] - 2026-07-02 (by @slazak)
+### Added
 - OpenAI ChatGPT Ads Event GTM template to send `oaiq('measure', …)` for all JavaScript Pixel standard events, custom events, and optional contents array
 

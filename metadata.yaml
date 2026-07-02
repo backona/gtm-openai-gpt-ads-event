@@ -1,0 +1,11 @@
+# Community Template Gallery publishing.
+# https://developers.google.com/tag-platform/tag-manager/templates/gallery
+
+homepage: "https://backona.com"
+documentation: "https://github.com/backona/gtm-openai-gpt-ads-event/blob/main/README.md"
+
+versions:
+  - sha: placeholder
+    changeNotes: |
+      OpenAI ChatGPT Ads Event GTM template to send oaiq measure conversion events
+      Event-aware fields with optional event contents for single products or multi-item carts

@@ -5,7 +5,7 @@ homepage: "https://backona.com"
 documentation: "https://github.com/backona/gtm-openai-gpt-ads-event/blob/main/README.md"
 
 versions:
-  - sha: placeholder
+  - sha: 5533dd4ffc5520a7da1396007edff610223b0132
     changeNotes: |
       OpenAI ChatGPT Ads Event GTM template to send oaiq measure conversion events
       Event-aware fields with optional event contents for single products or multi-item carts

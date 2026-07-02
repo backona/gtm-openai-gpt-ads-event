@@ -1,5 +1,4 @@
-# OpenAI ChatGPT Ads Event GTM Tag Template
-## [Backona](https://backona.com) - backona.com
+# OpenAI ChatGPT Ads Event GTM Tag Template by [Backona](https://backona.com)
 
 Google Tag Manager template to send [OpenAI Ads Measurement Pixel](https://developers.openai.com/ads/measurement-pixel) (`oaiq`) conversion events for ChatGPT ad attribution. Built by [Backona](https://backona.com).
 

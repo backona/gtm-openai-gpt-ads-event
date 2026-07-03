@@ -8,6 +8,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 Do not edit the NEW_VERSION and VERSION_DATE fields, they will be updated automatically by the Github Action script.
 
 ## [<NEW_VERSION>] - <VERSION_DATE>
+### Added
+### Changed
+### Fixed
+
+## [1.0.0] - 2026-07-03 (by @slazak)
 ### Changed
 - Plan ID, Event value, and Event contents are shown inline under the Event selector when the selected event supports them
 

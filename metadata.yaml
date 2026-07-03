@@ -5,6 +5,10 @@ homepage: "https://backona.com"
 documentation: "https://github.com/backona/gtm-openai-gpt-ads-event/blob/main/README.md"
 
 versions:
+  - sha: 0acffe303b853c5267152827f8d46d37b8064273
+    changeNotes: |
+      ### Changed
+      - Plan ID, Event value, and Event contents are shown inline under the Event selector when the selected event supports them
   - sha: 5533dd4ffc5520a7da1396007edff610223b0132
     changeNotes: |
       OpenAI ChatGPT Ads Event GTM template to send oaiq measure conversion events

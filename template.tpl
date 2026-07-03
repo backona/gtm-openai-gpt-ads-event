@@ -449,13 +449,13 @@ ___TEMPLATE_PARAMETERS___
       {
         "type": "LABEL",
         "name": "setupHelpLabel",
-        "displayName": "Requires the OpenAI ChatGPT Ads Configuration tag on Consent Initialization - All Pages (loads oaiq before this tag fires).",
+        "displayName": "OpenAI ChatGPT Ads Configuration tag: trigger Initialization — All Pages (loads oaiq early, before this tag fires).",
         "alwaysInSummary": true
       },
       {
         "type": "LABEL",
         "name": "consentHelpLabel",
-        "displayName": "Tag consent settings (Advanced section below): for Consent Mode v2, require ad_storage, ad_user_data, ad_personalization, and analytics_storage.",
+        "displayName": "Tag consent settings (Advanced section below): for Consent Mode v2, consider ad_storage, ad_user_data, ad_personalization, and analytics_storage.",
         "alwaysInSummary": true
       }
     ]
@@ -499,7 +499,7 @@ const logToConsole = require('logToConsole');
 
 const OAIQ_MISSING_MESSAGE =
   'Backona - backona.com: OpenAI ChatGPT Ads Event failed - oaiq is not available.\n' +
-  'Add the Backona - backona.com: OpenAI ChatGPT Ads Configuration separate tag on Consent Initialization - All Pages first.';
+  'Add the Backona - backona.com: OpenAI ChatGPT Ads Configuration tag with trigger Initialization — All Pages first.';
 
 const EVENT_DATA_TYPES = {
   page_viewed: 'contents',
@@ -1521,5 +1521,5 @@ setup: |-
 ___NOTES___
 
 OpenAI ChatGPT Ads Event template.
-Requires OpenAI ChatGPT Ads Configuration tag on Consent Initialization - All Pages.
-Tag consent (Advanced section below): ad_storage, ad_user_data, ad_personalization, analytics_storage for Consent Mode v2.
+OpenAI ChatGPT Ads Configuration tag: trigger Initialization — All Pages.
+Tag consent (Advanced section below): for Consent Mode v2, consider ad_storage, ad_user_data, ad_personalization, and analytics_storage.

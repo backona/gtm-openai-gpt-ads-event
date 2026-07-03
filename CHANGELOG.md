@@ -8,8 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 Do not edit the NEW_VERSION and VERSION_DATE fields, they will be updated automatically by the Github Action script.
 
 ## [<NEW_VERSION>] - <VERSION_DATE>
-### Added
-- Added sha to metadata.yaml for the template.tpl
+### Changed
+- Plan ID, Event value, and Event contents are shown inline under the Event selector when the selected event supports them
 
 ## [0.0.1] - 2026-07-02 (by @slazak)
 ### Added

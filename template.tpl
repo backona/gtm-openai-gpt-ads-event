@@ -104,163 +104,47 @@ ___TEMPLATE_PARAMETERS___
     ]
   },
   {
-    "type": "GROUP",
-    "name": "eventGuidanceGroup",
-    "displayName": "Event guidance",
-    "groupStyle": "ZIPPY_OPEN_ON_PARAM",
-    "help": "Expand for field-mapping tips for the selected Event.",
-    "subParams": [
+    "type": "TEXT",
+    "name": "planIdSubscription",
+    "displayName": "Plan ID (Optional)",
+    "simpleValueType": false,
+    "valueHint": "pro_monthly",
+    "help": "Optional plan identifier sent as plan_id for subscription conversions (plan_enrollment data shape). Example: pro_monthly.",
+    "enablingConditions": [
       {
-        "type": "LABEL",
-        "name": "hintPageViewed",
-        "displayName": "Fire when a user lands on or views an important page. On confirmation pages (e.g. order or signup thank-you), optionally in Event contents set contents source and map contents, or map from GA4 items with GA4 items.",
-        "enablingConditions": [
-          {
-            "paramName": "eventName",
-            "paramValue": "page_viewed",
-            "type": "EQUALS"
-          }
-        ]
-      },
-      {
-        "type": "LABEL",
-        "name": "hintContentsViewed",
-        "displayName": "Fire when a user views a product, listing, or article. Optionally in Event contents map contents or GA4 items.",
-        "enablingConditions": [
-          {
-            "paramName": "eventName",
-            "paramValue": "contents_viewed",
-            "type": "EQUALS"
-          }
-        ]
-      },
-      {
-        "type": "LABEL",
-        "name": "hintItemsAdded",
-        "displayName": "Fire when items are added to cart. Optionally set Amount, Currency, and in Event contents map GA4 items or contents.",
-        "enablingConditions": [
-          {
-            "paramName": "eventName",
-            "paramValue": "items_added",
-            "type": "EQUALS"
-          }
-        ]
-      },
-      {
-        "type": "LABEL",
-        "name": "hintCheckoutStarted",
-        "displayName": "Fire when checkout begins. Optionally set Amount, Currency, and in Event contents map GA4 items or contents.",
-        "enablingConditions": [
-          {
-            "paramName": "eventName",
-            "paramValue": "checkout_started",
-            "type": "EQUALS"
-          }
-        ]
-      },
-      {
-        "type": "LABEL",
-        "name": "hintOrderCreated",
-        "displayName": "Fire on purchase confirmation. Optionally set Amount, Currency, Event ID, and in Event contents map GA4 items or contents.",
-        "enablingConditions": [
-          {
-            "paramName": "eventName",
-            "paramValue": "order_created",
-            "type": "EQUALS"
-          }
-        ]
-      },
-      {
-        "type": "LABEL",
-        "name": "hintLeadCreated",
-        "displayName": "Fire when a user submits a lead form or requests contact. No Event value or Event contents fields apply to this event.",
-        "enablingConditions": [
-          {
-            "paramName": "eventName",
-            "paramValue": "lead_created",
-            "type": "EQUALS"
-          }
-        ]
-      },
-      {
-        "type": "LABEL",
-        "name": "hintRegistrationCompleted",
-        "displayName": "Fire when account or event registration completes. No Event value or Event contents fields apply to this event.",
-        "enablingConditions": [
-          {
-            "paramName": "eventName",
-            "paramValue": "registration_completed",
-            "type": "EQUALS"
-          }
-        ]
-      },
-      {
-        "type": "LABEL",
-        "name": "hintAppointmentScheduled",
-        "displayName": "Fire when a meeting, demo, or consultation is booked. Optionally set Amount and Currency.",
-        "enablingConditions": [
-          {
-            "paramName": "eventName",
-            "paramValue": "appointment_scheduled",
-            "type": "EQUALS"
-          }
-        ]
-      },
-      {
-        "type": "LABEL",
-        "name": "hintSubscriptionCreated",
-        "displayName": "Fire when a paid subscription starts. Optionally set Plan ID, Amount, and Currency.",
-        "enablingConditions": [
-          {
-            "paramName": "eventName",
-            "paramValue": "subscription_created",
-            "type": "EQUALS"
-          }
-        ]
-      },
-      {
-        "type": "LABEL",
-        "name": "hintTrialStarted",
-        "displayName": "Fire when a free trial starts. Optionally set Plan ID.",
-        "enablingConditions": [
-          {
-            "paramName": "eventName",
-            "paramValue": "trial_started",
-            "type": "EQUALS"
-          }
-        ]
-      },
-      {
-        "type": "LABEL",
-        "name": "hintCustom",
-        "displayName": "Use only when no standard event fits. Enter Custom event name above. Amount, Currency, Plan ID, and Event contents are optional.",
-        "enablingConditions": [
-          {
-            "paramName": "eventName",
-            "paramValue": "custom",
-            "type": "EQUALS"
-          }
-        ]
+        "paramName": "eventName",
+        "paramValue": "subscription_created",
+        "type": "EQUALS"
       }
     ]
   },
   {
-    "type": "GROUP",
-    "name": "setupHelpGroup",
-    "displayName": "Recommended setup",
-    "groupStyle": "ZIPPY_CLOSED",
-    "subParams": [
+    "type": "TEXT",
+    "name": "planIdTrial",
+    "displayName": "Plan ID (Optional)",
+    "simpleValueType": false,
+    "valueHint": "pro_trial",
+    "help": "Optional plan identifier sent as plan_id for trial conversions (plan_enrollment data shape). Example: pro_trial.",
+    "enablingConditions": [
       {
-        "type": "LABEL",
-        "name": "setupHelpLabel",
-        "displayName": "Requires the OpenAI ChatGPT Ads Configuration tag on Consent Initialization - All Pages (loads oaiq before this tag fires).",
-        "alwaysInSummary": true
-      },
+        "paramName": "eventName",
+        "paramValue": "trial_started",
+        "type": "EQUALS"
+      }
+    ]
+  },
+  {
+    "type": "TEXT",
+    "name": "planIdCustom",
+    "displayName": "Plan ID (Optional)",
+    "simpleValueType": false,
+    "valueHint": "pro_monthly",
+    "help": "Optional plan identifier sent as plan_id for custom conversions. Example: pro_monthly or pro_trial.",
+    "enablingConditions": [
       {
-        "type": "LABEL",
-        "name": "consentHelpLabel",
-        "displayName": "Tag consent settings (Advanced section below): for Consent Mode v2, require ad_storage, ad_user_data, ad_personalization, and analytics_storage.",
-        "alwaysInSummary": true
+        "paramName": "eventName",
+        "paramValue": "custom",
+        "type": "EQUALS"
       }
     ]
   },
@@ -268,7 +152,7 @@ ___TEMPLATE_PARAMETERS___
     "type": "GROUP",
     "name": "valueGroup",
     "displayName": "Event value (Optional)",
-    "groupStyle": "ZIPPY_CLOSED",
+    "groupStyle": "NO_ZIPPY",
     "enablingConditions": [
       {
         "paramName": "eventName",
@@ -303,67 +187,9 @@ ___TEMPLATE_PARAMETERS___
   },
   {
     "type": "GROUP",
-    "name": "planGroup",
-    "displayName": "Plan (Optional)",
-    "groupStyle": "ZIPPY_CLOSED",
-    "enablingConditions": [
-      {
-        "paramName": "eventName",
-        "paramValue": "lead_created",
-        "type": "NOT_EQUALS"
-      },
-      {
-        "paramName": "eventName",
-        "paramValue": "registration_completed",
-        "type": "NOT_EQUALS"
-      },
-      {
-        "paramName": "eventName",
-        "paramValue": "page_viewed",
-        "type": "NOT_EQUALS"
-      },
-      {
-        "paramName": "eventName",
-        "paramValue": "contents_viewed",
-        "type": "NOT_EQUALS"
-      },
-      {
-        "paramName": "eventName",
-        "paramValue": "items_added",
-        "type": "NOT_EQUALS"
-      },
-      {
-        "paramName": "eventName",
-        "paramValue": "checkout_started",
-        "type": "NOT_EQUALS"
-      },
-      {
-        "paramName": "eventName",
-        "paramValue": "order_created",
-        "type": "NOT_EQUALS"
-      },
-      {
-        "paramName": "eventName",
-        "paramValue": "appointment_scheduled",
-        "type": "NOT_EQUALS"
-      }
-    ],
-    "subParams": [
-      {
-        "type": "TEXT",
-        "name": "planId",
-        "displayName": "Plan ID (Optional)",
-        "simpleValueType": false,
-        "valueHint": "pro_monthly",
-        "help": "Optional plan identifier sent as plan_id for subscription and trial conversions. Example: pro_monthly or pro_trial."
-      }
-    ]
-  },
-  {
-    "type": "GROUP",
     "name": "itemDetailsGroup",
     "displayName": "Event contents (Optional)",
-    "groupStyle": "ZIPPY_CLOSED",
+    "groupStyle": "NO_ZIPPY",
     "enablingConditions": [
       {
         "paramName": "eventName",
@@ -470,6 +296,167 @@ ___TEMPLATE_PARAMETERS___
             "type": "EQUALS"
           }
         ]
+      }
+    ]
+  },
+  {
+    "type": "GROUP",
+    "name": "eventGuidanceGroup",
+    "displayName": "Event guidance",
+    "groupStyle": "ZIPPY_OPEN_ON_PARAM",
+    "help": "Expand for field-mapping tips for the selected Event.",
+    "subParams": [
+      {
+        "type": "LABEL",
+        "name": "hintPageViewed",
+        "displayName": "Fire when a user lands on or views an important page. On confirmation pages (e.g. order or signup thank-you), optionally map Event contents above from a contents array or GA4 items.",
+        "enablingConditions": [
+          {
+            "paramName": "eventName",
+            "paramValue": "page_viewed",
+            "type": "EQUALS"
+          }
+        ]
+      },
+      {
+        "type": "LABEL",
+        "name": "hintContentsViewed",
+        "displayName": "Fire when a user views a product, listing, or article. Optionally map Event contents above.",
+        "enablingConditions": [
+          {
+            "paramName": "eventName",
+            "paramValue": "contents_viewed",
+            "type": "EQUALS"
+          }
+        ]
+      },
+      {
+        "type": "LABEL",
+        "name": "hintItemsAdded",
+        "displayName": "Fire when items are added to cart. Optionally set Amount, Currency, and Event contents above.",
+        "enablingConditions": [
+          {
+            "paramName": "eventName",
+            "paramValue": "items_added",
+            "type": "EQUALS"
+          }
+        ]
+      },
+      {
+        "type": "LABEL",
+        "name": "hintCheckoutStarted",
+        "displayName": "Fire when checkout begins. Optionally set Amount, Currency, and Event contents above.",
+        "enablingConditions": [
+          {
+            "paramName": "eventName",
+            "paramValue": "checkout_started",
+            "type": "EQUALS"
+          }
+        ]
+      },
+      {
+        "type": "LABEL",
+        "name": "hintOrderCreated",
+        "displayName": "Fire on purchase confirmation. Optionally set Amount, Currency, Event ID, and Event contents above.",
+        "enablingConditions": [
+          {
+            "paramName": "eventName",
+            "paramValue": "order_created",
+            "type": "EQUALS"
+          }
+        ]
+      },
+      {
+        "type": "LABEL",
+        "name": "hintLeadCreated",
+        "displayName": "Fire when a user submits a lead form or requests contact. Event value and Event contents do not apply to this event.",
+        "enablingConditions": [
+          {
+            "paramName": "eventName",
+            "paramValue": "lead_created",
+            "type": "EQUALS"
+          }
+        ]
+      },
+      {
+        "type": "LABEL",
+        "name": "hintRegistrationCompleted",
+        "displayName": "Fire when account or event registration completes. Event value and Event contents do not apply to this event.",
+        "enablingConditions": [
+          {
+            "paramName": "eventName",
+            "paramValue": "registration_completed",
+            "type": "EQUALS"
+          }
+        ]
+      },
+      {
+        "type": "LABEL",
+        "name": "hintAppointmentScheduled",
+        "displayName": "Fire when a meeting, demo, or consultation is booked. Optionally set Amount and Currency above.",
+        "enablingConditions": [
+          {
+            "paramName": "eventName",
+            "paramValue": "appointment_scheduled",
+            "type": "EQUALS"
+          }
+        ]
+      },
+      {
+        "type": "LABEL",
+        "name": "hintSubscriptionCreated",
+        "displayName": "Fire when a paid subscription starts. Optionally set Plan ID, Amount, and Currency above.",
+        "enablingConditions": [
+          {
+            "paramName": "eventName",
+            "paramValue": "subscription_created",
+            "type": "EQUALS"
+          }
+        ]
+      },
+      {
+        "type": "LABEL",
+        "name": "hintTrialStarted",
+        "displayName": "Fire when a free trial starts. Optionally set Plan ID.",
+        "enablingConditions": [
+          {
+            "paramName": "eventName",
+            "paramValue": "trial_started",
+            "type": "EQUALS"
+          }
+        ]
+      },
+      {
+        "type": "LABEL",
+        "name": "hintCustom",
+        "displayName": "Use only when no standard event fits. Enter Custom event name above. Amount, Currency, Plan ID, and Event contents are optional.",
+        "enablingConditions": [
+          {
+            "paramName": "eventName",
+            "paramValue": "custom",
+            "type": "EQUALS"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "GROUP",
+    "name": "setupHelpGroup",
+    "displayName": "Recommended setup",
+    "groupStyle": "ZIPPY_CLOSED",
+    "subParams": [
+      {
+        "type": "LABEL",
+        "name": "setupHelpLabel",
+        "displayName": "Requires the OpenAI ChatGPT Ads Configuration tag on Consent Initialization - All Pages (loads oaiq before this tag fires).",
+        "alwaysInSummary": true
+      },
+      {
+        "type": "LABEL",
+        "name": "consentHelpLabel",
+        "displayName": "Tag consent settings (Advanced section below): for Consent Mode v2, require ad_storage, ad_user_data, ad_personalization, and analytics_storage.",
+        "alwaysInSummary": true
       }
     ]
   },
@@ -940,7 +927,10 @@ if (eventAllowsValue(eventName) && amountText !== '') {
   eventData.currency = currency;
 }
 
-const planId = trimValue(data.planId);
+const planId = pickFirstNonEmpty(
+  pickFirstNonEmpty(data.planIdSubscription, data.planIdTrial),
+  pickFirstNonEmpty(data.planIdCustom, data.planId)
+);
 if (eventAllowsPlanId(eventName) && planId !== '') {
   eventData.plan_id = planId;
 }

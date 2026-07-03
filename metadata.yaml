@@ -5,6 +5,10 @@ homepage: "https://backona.com"
 documentation: "https://github.com/backona/gtm-openai-gpt-ads-event/blob/main/README.md"
 
 versions:
+  - sha: 1924f307c77f9edf3e9e70badbceafa5b4f9b55d
+    changeNotes: |
+      ### Changed
+      - Recommended setup guidance aligned with Configuration template: Initialization — All Pages trigger recommended
   - sha: 0acffe303b853c5267152827f8d46d37b8064273
     changeNotes: |
       ### Changed

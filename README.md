@@ -15,7 +15,7 @@ This repository publishes **OpenAI ChatGPT Ads Event** ([gtm-openai-gpt-ads-even
 
 ## Install
 
-1. Install **OpenAI ChatGPT Ads Configuration** from the [Community Template Gallery](https://tagmanager.google.com/gallery) or [gtm-openai-gpt-ads-config](https://github.com/backona/gtm-openai-gpt-ads-config). Set its trigger to **Consent Initialization - All Pages**.
+1. Install **OpenAI ChatGPT Ads Configuration** from the [Community Template Gallery](https://tagmanager.google.com/gallery) or [gtm-openai-gpt-ads-config](https://github.com/backona/gtm-openai-gpt-ads-config). Set its trigger to **Initialization - All Pages**.
 2. Add **OpenAI ChatGPT Ads Event** from the [Community Template Gallery](https://tagmanager.google.com/gallery) or [gtm-openai-gpt-ads-event](https://github.com/backona/gtm-openai-gpt-ads-event), or import [`template.tpl`](./template.tpl) from this repository.
 3. Create a tag using **OpenAI ChatGPT Ads Event**.
 4. Choose a standard event (or **Custom**) and fill in optional value, plan, and event contents as needed.
@@ -27,7 +27,7 @@ Supported JavaScript Pixel events: `page_viewed`, `contents_viewed`, `items_adde
 
 ## Consent
 
-On each tag, open **Advanced settings → Consent settings** and require these types when using [Consent Mode v2](https://support.google.com/tagmanager/answer/10718549):
+On each tag, open **Advanced settings → Consent settings** and consider these types when using [Consent Mode v2](https://support.google.com/tagmanager/answer/10718549):
 
 - `ad_storage`
 - `ad_user_data`

@@ -25,6 +25,12 @@ Supported JavaScript Pixel events: `page_viewed`, `contents_viewed`, `items_adde
 
 `app_installed` and `app_opened` are not supported by the JavaScript Pixel - use the Conversions API server-side.
 
+## GTM preview
+
+In **Tag Assistant preview/debug mode**, when the tag fires successfully, the preview console logs the resolved `oaiq('measure', …)` payload — only fields that were actually sent (after amount conversion and GA4 item mapping). **Event** remains in Tag Details → Properties via summary. These logs are not written on the live site.
+
+If **Type** shows *Unknown Tag Type* or **Firing Status** shows *Failed* while the tag header says *Fired*, that is a known Tag Assistant quirk with community templates—the measure call may still succeed. Check the preview console for the measure payload log and confirm events in your OpenAI Ads dashboard.
+
 ## Consent
 
 On each tag, open **Advanced settings → Consent settings** and consider these types when using [Consent Mode v2](https://support.google.com/tagmanager/answer/10718549):

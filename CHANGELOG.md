@@ -8,9 +8,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 Do not edit the NEW_VERSION and VERSION_DATE fields, they will be updated automatically by the Github Action script.
 
 ## [<NEW_VERSION>] - <VERSION_DATE>
-### Added
 ### Changed
-### Fixed
+- Clearer tag layout: event guidance directly under Event selector (expanded by default), dedicated sections for custom event name and Plan ID, recommended setup below Advanced options
+- Optional amount × 100 conversion for mapping GA4-style major currency values to OpenAI minor units
+- GTM preview logs the resolved measure payload to the console when the tag fires successfully
 
 ## [1.0.1] - 2026-07-03 (by @slazak)
 ### Changed

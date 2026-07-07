@@ -87,64 +87,222 @@ ___TEMPLATE_PARAMETERS___
         "displayValue": "Custom event - When no standard event fits"
       }
     ],
-    "help": "Standard OpenAI Ads events supported by the JavaScript Pixel. Expand Event guidance below for field tips. See https://developers.openai.com/ads/measurement-pixel#send-events"
+    "help": "Standard OpenAI Ads events supported by the JavaScript Pixel. Event guidance appears below for the selected event. See https://developers.openai.com/ads/measurement-pixel#send-events"
   },
   {
-    "type": "TEXT",
-    "name": "customEventName",
-    "displayName": "Custom event name",
-    "simpleValueType": true,
-    "help": "Lowercase name for your custom conversion, e.g. quote_requested. Required when Event is Custom.",
+    "type": "GROUP",
+    "name": "eventGuidanceGroup",
+    "displayName": "Event guidance",
+    "groupStyle": "ZIPPY_OPEN",
+    "help": "Expand for field-mapping tips for the selected Event.",
+    "subParams": [
+      {
+        "type": "LABEL",
+        "name": "hintPageViewed",
+        "displayName": "Fire when a user lands on or views an important page. On confirmation pages (e.g. order or signup thank-you), optionally map Event contents below from a contents array or GA4 items.",
+        "enablingConditions": [
+          {
+            "paramName": "eventName",
+            "paramValue": "page_viewed",
+            "type": "EQUALS"
+          }
+        ]
+      },
+      {
+        "type": "LABEL",
+        "name": "hintContentsViewed",
+        "displayName": "Fire when a user views a product, listing, or article. Optionally map Event contents below.",
+        "enablingConditions": [
+          {
+            "paramName": "eventName",
+            "paramValue": "contents_viewed",
+            "type": "EQUALS"
+          }
+        ]
+      },
+      {
+        "type": "LABEL",
+        "name": "hintItemsAdded",
+        "displayName": "Fire when items are added to cart. Optionally set Amount, Currency, and Event contents below.",
+        "enablingConditions": [
+          {
+            "paramName": "eventName",
+            "paramValue": "items_added",
+            "type": "EQUALS"
+          }
+        ]
+      },
+      {
+        "type": "LABEL",
+        "name": "hintCheckoutStarted",
+        "displayName": "Fire when checkout begins. Optionally set Amount, Currency, and Event contents below.",
+        "enablingConditions": [
+          {
+            "paramName": "eventName",
+            "paramValue": "checkout_started",
+            "type": "EQUALS"
+          }
+        ]
+      },
+      {
+        "type": "LABEL",
+        "name": "hintOrderCreated",
+        "displayName": "Fire on purchase confirmation. Optionally set Amount, Currency, Event ID, and Event contents below.",
+        "enablingConditions": [
+          {
+            "paramName": "eventName",
+            "paramValue": "order_created",
+            "type": "EQUALS"
+          }
+        ]
+      },
+      {
+        "type": "LABEL",
+        "name": "hintLeadCreated",
+        "displayName": "Fire when a user submits a lead form or requests contact. Event value and Event contents do not apply to this event.",
+        "enablingConditions": [
+          {
+            "paramName": "eventName",
+            "paramValue": "lead_created",
+            "type": "EQUALS"
+          }
+        ]
+      },
+      {
+        "type": "LABEL",
+        "name": "hintRegistrationCompleted",
+        "displayName": "Fire when account or event registration completes. Event value and Event contents do not apply to this event.",
+        "enablingConditions": [
+          {
+            "paramName": "eventName",
+            "paramValue": "registration_completed",
+            "type": "EQUALS"
+          }
+        ]
+      },
+      {
+        "type": "LABEL",
+        "name": "hintAppointmentScheduled",
+        "displayName": "Fire when a meeting, demo, or consultation is booked. Optionally set Amount and Currency below.",
+        "enablingConditions": [
+          {
+            "paramName": "eventName",
+            "paramValue": "appointment_scheduled",
+            "type": "EQUALS"
+          }
+        ]
+      },
+      {
+        "type": "LABEL",
+        "name": "hintSubscriptionCreated",
+        "displayName": "Fire when a paid subscription starts. Optionally set Plan ID, Amount, and Currency below.",
+        "enablingConditions": [
+          {
+            "paramName": "eventName",
+            "paramValue": "subscription_created",
+            "type": "EQUALS"
+          }
+        ]
+      },
+      {
+        "type": "LABEL",
+        "name": "hintTrialStarted",
+        "displayName": "Fire when a free trial starts. Optionally set Plan ID below.",
+        "enablingConditions": [
+          {
+            "paramName": "eventName",
+            "paramValue": "trial_started",
+            "type": "EQUALS"
+          }
+        ]
+      },
+      {
+        "type": "LABEL",
+        "name": "hintCustom",
+        "displayName": "Use only when no standard event fits. Enter Custom event name below. Amount, Currency, Plan ID, and Event contents are optional.",
+        "enablingConditions": [
+          {
+            "paramName": "eventName",
+            "paramValue": "custom",
+            "type": "EQUALS"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "GROUP",
+    "name": "customEventGroup",
+    "displayName": "Custom event",
+    "groupStyle": "NO_ZIPPY",
     "enablingConditions": [
       {
         "paramName": "eventName",
         "paramValue": "custom",
         "type": "EQUALS"
       }
+    ],
+    "subParams": [
+      {
+        "type": "TEXT",
+        "name": "customEventName",
+        "displayName": "Custom event name",
+        "simpleValueType": true,
+        "help": "Lowercase name for your custom conversion, e.g. quote_requested. Required when Event is Custom."
+      },
+      {
+        "type": "TEXT",
+        "name": "planIdCustom",
+        "displayName": "Plan ID (Optional)",
+        "simpleValueType": false,
+        "valueHint": "pro_monthly",
+        "help": "Optional plan identifier sent as plan_id for custom conversions. Example: pro_monthly or pro_trial."
+      }
     ]
   },
   {
-    "type": "TEXT",
-    "name": "planIdSubscription",
-    "displayName": "Plan ID (Optional)",
-    "simpleValueType": false,
-    "valueHint": "pro_monthly",
-    "help": "Optional plan identifier sent as plan_id for subscription conversions (plan_enrollment data shape). Example: pro_monthly.",
+    "type": "GROUP",
+    "name": "subscriptionPlanGroup",
+    "displayName": "Plan (Optional)",
+    "groupStyle": "NO_ZIPPY",
     "enablingConditions": [
       {
         "paramName": "eventName",
         "paramValue": "subscription_created",
         "type": "EQUALS"
       }
+    ],
+    "subParams": [
+      {
+        "type": "TEXT",
+        "name": "planIdSubscription",
+        "displayName": "Plan ID (Optional)",
+        "simpleValueType": false,
+        "valueHint": "pro_monthly",
+        "help": "Optional plan identifier sent as plan_id for subscription conversions (plan_enrollment data shape). Example: pro_monthly."
+      }
     ]
   },
   {
-    "type": "TEXT",
-    "name": "planIdTrial",
-    "displayName": "Plan ID (Optional)",
-    "simpleValueType": false,
-    "valueHint": "pro_trial",
-    "help": "Optional plan identifier sent as plan_id for trial conversions (plan_enrollment data shape). Example: pro_trial.",
+    "type": "GROUP",
+    "name": "trialPlanGroup",
+    "displayName": "Plan (Optional)",
+    "groupStyle": "NO_ZIPPY",
     "enablingConditions": [
       {
         "paramName": "eventName",
         "paramValue": "trial_started",
         "type": "EQUALS"
       }
-    ]
-  },
-  {
-    "type": "TEXT",
-    "name": "planIdCustom",
-    "displayName": "Plan ID (Optional)",
-    "simpleValueType": false,
-    "valueHint": "pro_monthly",
-    "help": "Optional plan identifier sent as plan_id for custom conversions. Example: pro_monthly or pro_trial.",
-    "enablingConditions": [
+    ],
+    "subParams": [
       {
-        "paramName": "eventName",
-        "paramValue": "custom",
-        "type": "EQUALS"
+        "type": "TEXT",
+        "name": "planIdTrial",
+        "displayName": "Plan ID (Optional)",
+        "simpleValueType": false,
+        "valueHint": "pro_trial",
+        "help": "Optional plan identifier sent as plan_id for trial conversions (plan_enrollment data shape). Example: pro_trial."
       }
     ]
   },
@@ -172,7 +330,16 @@ ___TEMPLATE_PARAMETERS___
         "displayName": "Amount (Optional)",
         "simpleValueType": false,
         "valueHint": "2599",
-        "help": "Optional conversion value in minor currency units (cents) - e.g. 2599 = $25.99 USD. Set Amount and Currency together when reporting revenue. Use integers only."
+        "help": "Optional conversion value. Use minor units (cents) by default, e.g. 2599 = $25.99 USD. Check x 100 when mapping major units from GA4 or similar (e.g. 25.99). Set Amount and Currency together when reporting revenue."
+      },
+      {
+        "type": "CHECKBOX",
+        "name": "amountMultiplyBy100",
+        "displayName": "Amount unit conversion (Optional)",
+        "checkboxText": "x 100",
+        "simpleValueType": true,
+        "defaultValue": false,
+        "help": "Convert Amount from major currency units to OpenAI minor units (cents). Example: 25.99 becomes 2599. Leave unchecked when Amount is already in cents."
       },
       {
         "type": "TEXT",
@@ -301,167 +468,6 @@ ___TEMPLATE_PARAMETERS___
   },
   {
     "type": "GROUP",
-    "name": "eventGuidanceGroup",
-    "displayName": "Event guidance",
-    "groupStyle": "ZIPPY_OPEN_ON_PARAM",
-    "help": "Expand for field-mapping tips for the selected Event.",
-    "subParams": [
-      {
-        "type": "LABEL",
-        "name": "hintPageViewed",
-        "displayName": "Fire when a user lands on or views an important page. On confirmation pages (e.g. order or signup thank-you), optionally map Event contents above from a contents array or GA4 items.",
-        "enablingConditions": [
-          {
-            "paramName": "eventName",
-            "paramValue": "page_viewed",
-            "type": "EQUALS"
-          }
-        ]
-      },
-      {
-        "type": "LABEL",
-        "name": "hintContentsViewed",
-        "displayName": "Fire when a user views a product, listing, or article. Optionally map Event contents above.",
-        "enablingConditions": [
-          {
-            "paramName": "eventName",
-            "paramValue": "contents_viewed",
-            "type": "EQUALS"
-          }
-        ]
-      },
-      {
-        "type": "LABEL",
-        "name": "hintItemsAdded",
-        "displayName": "Fire when items are added to cart. Optionally set Amount, Currency, and Event contents above.",
-        "enablingConditions": [
-          {
-            "paramName": "eventName",
-            "paramValue": "items_added",
-            "type": "EQUALS"
-          }
-        ]
-      },
-      {
-        "type": "LABEL",
-        "name": "hintCheckoutStarted",
-        "displayName": "Fire when checkout begins. Optionally set Amount, Currency, and Event contents above.",
-        "enablingConditions": [
-          {
-            "paramName": "eventName",
-            "paramValue": "checkout_started",
-            "type": "EQUALS"
-          }
-        ]
-      },
-      {
-        "type": "LABEL",
-        "name": "hintOrderCreated",
-        "displayName": "Fire on purchase confirmation. Optionally set Amount, Currency, Event ID, and Event contents above.",
-        "enablingConditions": [
-          {
-            "paramName": "eventName",
-            "paramValue": "order_created",
-            "type": "EQUALS"
-          }
-        ]
-      },
-      {
-        "type": "LABEL",
-        "name": "hintLeadCreated",
-        "displayName": "Fire when a user submits a lead form or requests contact. Event value and Event contents do not apply to this event.",
-        "enablingConditions": [
-          {
-            "paramName": "eventName",
-            "paramValue": "lead_created",
-            "type": "EQUALS"
-          }
-        ]
-      },
-      {
-        "type": "LABEL",
-        "name": "hintRegistrationCompleted",
-        "displayName": "Fire when account or event registration completes. Event value and Event contents do not apply to this event.",
-        "enablingConditions": [
-          {
-            "paramName": "eventName",
-            "paramValue": "registration_completed",
-            "type": "EQUALS"
-          }
-        ]
-      },
-      {
-        "type": "LABEL",
-        "name": "hintAppointmentScheduled",
-        "displayName": "Fire when a meeting, demo, or consultation is booked. Optionally set Amount and Currency above.",
-        "enablingConditions": [
-          {
-            "paramName": "eventName",
-            "paramValue": "appointment_scheduled",
-            "type": "EQUALS"
-          }
-        ]
-      },
-      {
-        "type": "LABEL",
-        "name": "hintSubscriptionCreated",
-        "displayName": "Fire when a paid subscription starts. Optionally set Plan ID, Amount, and Currency above.",
-        "enablingConditions": [
-          {
-            "paramName": "eventName",
-            "paramValue": "subscription_created",
-            "type": "EQUALS"
-          }
-        ]
-      },
-      {
-        "type": "LABEL",
-        "name": "hintTrialStarted",
-        "displayName": "Fire when a free trial starts. Optionally set Plan ID.",
-        "enablingConditions": [
-          {
-            "paramName": "eventName",
-            "paramValue": "trial_started",
-            "type": "EQUALS"
-          }
-        ]
-      },
-      {
-        "type": "LABEL",
-        "name": "hintCustom",
-        "displayName": "Use only when no standard event fits. Enter Custom event name above. Amount, Currency, Plan ID, and Event contents are optional.",
-        "enablingConditions": [
-          {
-            "paramName": "eventName",
-            "paramValue": "custom",
-            "type": "EQUALS"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "type": "GROUP",
-    "name": "setupHelpGroup",
-    "displayName": "Recommended setup",
-    "groupStyle": "ZIPPY_CLOSED",
-    "subParams": [
-      {
-        "type": "LABEL",
-        "name": "setupHelpLabel",
-        "displayName": "OpenAI ChatGPT Ads Configuration tag: trigger Initialization — All Pages (loads oaiq early, before this tag fires).",
-        "alwaysInSummary": true
-      },
-      {
-        "type": "LABEL",
-        "name": "consentHelpLabel",
-        "displayName": "Tag consent settings (Advanced section below): for Consent Mode v2, consider ad_storage, ad_user_data, ad_personalization, and analytics_storage.",
-        "alwaysInSummary": true
-      }
-    ]
-  },
-  {
-    "type": "GROUP",
     "name": "advancedGroup",
     "displayName": "Advanced options",
     "groupStyle": "ZIPPY_CLOSED",
@@ -484,6 +490,24 @@ ___TEMPLATE_PARAMETERS___
         "help": "Sets opt_out: true on this event."
       }
     ]
+  },
+  {
+    "type": "GROUP",
+    "name": "setupHelpGroup",
+    "displayName": "Recommended setup",
+    "groupStyle": "ZIPPY_CLOSED",
+    "subParams": [
+      {
+        "type": "LABEL",
+        "name": "setupHelpLabel",
+        "displayName": "OpenAI ChatGPT Ads Configuration tag: trigger Initialization — All Pages (loads oaiq early, before this tag fires)."
+      },
+      {
+        "type": "LABEL",
+        "name": "consentHelpLabel",
+        "displayName": "Tag consent settings (GTM Advanced settings): for Consent Mode v2, consider ad_storage, ad_user_data, ad_personalization, and analytics_storage."
+      }
+    ]
   }
 ]
 
@@ -500,6 +524,8 @@ const logToConsole = require('logToConsole');
 const OAIQ_MISSING_MESSAGE =
   'Backona - backona.com: OpenAI ChatGPT Ads Event failed - oaiq is not available.\n' +
   'Add the Backona - backona.com: OpenAI ChatGPT Ads Configuration tag with trigger Initialization — All Pages first.';
+const MEASURE_PREVIEW_PREFIX =
+  'Backona - backona.com: OpenAI ChatGPT Ads Event — oaiq("measure", ...) payload (GTM preview)';
 
 const EVENT_DATA_TYPES = {
   page_viewed: 'contents',
@@ -692,6 +718,13 @@ const priceToMinorUnits = function(value) {
   return whole * 100 + frac;
 };
 
+const resolveEventAmount = function(amountText, multiplyBy100) {
+  if (multiplyBy100 === true) {
+    return priceToMinorUnits(amountText);
+  }
+  return parsePositiveInteger(amountText);
+};
+
 const pickFirstNonEmpty = function(primary, fallback) {
   const primaryValue = trimValue(primary);
   if (primaryValue !== '') {
@@ -877,6 +910,18 @@ const mapGa4ItemsInput = function(raw, eventCurrency, defaultContentType) {
   return buildContents(mappedRows, eventCurrency);
 };
 
+const logMeasurePreview = function(measureName, eventData, options, hasOptions) {
+  const preview = {
+    measure: measureName,
+    eventData: eventData
+  };
+  if (hasOptions) {
+    preview.options = options;
+  }
+  logToConsole(MEASURE_PREVIEW_PREFIX);
+  logToConsole(preview);
+};
+
 const resolveContents = function(eventCurrency) {
   const contentsSource = trimValue(data.contentsSource);
   if (contentsSource === 'ga4_items') {
@@ -914,7 +959,7 @@ const currency = trimValue(data.currency);
 const amountText = trimValue(data.amount);
 
 if (eventAllowsValue(eventName) && amountText !== '') {
-  const amount = parsePositiveInteger(amountText);
+  const amount = resolveEventAmount(amountText, data.amountMultiplyBy100 === true);
   if (amount === undefined) {
     data.gtmOnFailure();
     return;
@@ -969,6 +1014,7 @@ if (hasOptions) {
   oaiq('measure', measureName, eventData);
 }
 
+logMeasurePreview(measureName, eventData, options, hasOptions);
 data.gtmOnSuccess();
 
 
@@ -986,7 +1032,7 @@ ___WEB_PERMISSIONS___
           "key": "environments",
           "value": {
             "type": 1,
-            "string": "all"
+            "string": "debug"
           }
         }
       ]
@@ -1077,6 +1123,26 @@ scenarios:
     assertApi('logToConsole').wasCalled();
     assertApi('gtmOnFailure').wasCalled();
     assertApi('gtmOnSuccess').wasNotCalled();
+- name: logs resolved measure payload in preview
+  code: |-
+    mock('copyFromWindow', function(key) {
+      if (key === 'oaiq') {
+        return function() {};
+      }
+    });
+
+    runCode({
+      eventName: 'checkout_started',
+      amount: '14.5',
+      amountMultiplyBy100: true,
+      currency: 'GBP',
+      optOut: false
+    });
+
+    assertApi('logToConsole').wasCalledWith(
+      'Backona - backona.com: OpenAI ChatGPT Ads Event — oaiq("measure", ...) payload (GTM preview)'
+    );
+    assertApi('gtmOnSuccess').wasCalled();
 - name: sends lead created with customer action only
   code: |-
     const oaiqCalls = [];
@@ -1510,6 +1576,51 @@ scenarios:
     assertThat(oaiqCalls[0][2].plan_id).isEqualTo('pro_monthly');
     assertThat(oaiqCalls[0][2].amount).isEqualTo(2000);
     assertThat(oaiqCalls[0][2].contents).isUndefined();
+    assertApi('gtmOnSuccess').wasCalled();
+- name: converts major unit amount with x 100 checkbox
+  code: |-
+    const oaiqCalls = [];
+
+    mock('copyFromWindow', function(key) {
+      if (key === 'oaiq') {
+        return function() {
+          oaiqCalls.push(arguments);
+        };
+      }
+    });
+
+    runCode({
+      eventName: 'order_created',
+      amount: '25.99',
+      amountMultiplyBy100: true,
+      currency: 'USD',
+      optOut: false
+    });
+
+    assertThat(oaiqCalls[0][2].amount).isEqualTo(2599);
+    assertThat(oaiqCalls[0][2].currency).isEqualTo('USD');
+    assertApi('gtmOnSuccess').wasCalled();
+- name: converts whole major unit amount with x 100 checkbox
+  code: |-
+    const oaiqCalls = [];
+
+    mock('copyFromWindow', function(key) {
+      if (key === 'oaiq') {
+        return function() {
+          oaiqCalls.push(arguments);
+        };
+      }
+    });
+
+    runCode({
+      eventName: 'checkout_started',
+      amount: '25',
+      amountMultiplyBy100: true,
+      currency: 'USD',
+      optOut: false
+    });
+
+    assertThat(oaiqCalls[0][2].amount).isEqualTo(2500);
     assertApi('gtmOnSuccess').wasCalled();
 setup: |-
   const mockData = {

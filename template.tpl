@@ -508,6 +508,15 @@ ___TEMPLATE_PARAMETERS___
         "displayName": "Tag consent settings (GTM Advanced settings): for Consent Mode v2, consider ad_storage, ad_user_data, ad_personalization, and analytics_storage."
       }
     ]
+  },
+  {
+    "type": "CHECKBOX",
+    "name": "debug",
+    "displayName": "Debug mode",
+    "checkboxText": "Enable debug logging",
+    "simpleValueType": true,
+    "defaultValue": false,
+    "help": "Logs the resolved oaiq('measure', …) payload to the GTM preview and browser console when this tag fires."
   }
 ]
 
@@ -911,6 +920,9 @@ const mapGa4ItemsInput = function(raw, eventCurrency, defaultContentType) {
 };
 
 const logMeasurePreview = function(measureName, eventData, options, hasOptions) {
+  if (data.debug !== true) {
+    return;
+  }
   const preview = {
     measure: measureName,
     eventData: eventData
@@ -1136,12 +1148,32 @@ scenarios:
       amount: '14.5',
       amountMultiplyBy100: true,
       currency: 'GBP',
-      optOut: false
+      optOut: false,
+      debug: true
     });
 
     assertApi('logToConsole').wasCalledWith(
       'Backona - backona.com: OpenAI ChatGPT Ads Event — oaiq("measure", ...) payload (GTM preview)'
     );
+    assertApi('gtmOnSuccess').wasCalled();
+- name: omits measure payload log when debug disabled
+  code: |-
+    mock('copyFromWindow', function(key) {
+      if (key === 'oaiq') {
+        return function() {};
+      }
+    });
+
+    runCode({
+      eventName: 'checkout_started',
+      amount: '14.5',
+      amountMultiplyBy100: true,
+      currency: 'GBP',
+      optOut: false,
+      debug: false
+    });
+
+    assertApi('logToConsole').wasNotCalled();
     assertApi('gtmOnSuccess').wasCalled();
 - name: sends lead created with customer action only
   code: |-
@@ -1626,7 +1658,8 @@ setup: |-
   const mockData = {
     eventName: 'lead_created',
     contentsSource: 'custom',
-    optOut: false
+    optOut: false,
+    debug: false
   };
 
 ___NOTES___

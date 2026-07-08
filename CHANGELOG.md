@@ -9,8 +9,7 @@ Do not edit the NEW_VERSION and VERSION_DATE fields, they will be updated automa
 
 ## [<NEW_VERSION>] - <VERSION_DATE>
 ### Added
-### Changed
-### Fixed
+- Debug mode checkbox to enable measure payload logging in GTM preview and browser console
 
 ## [1.1.1] - 2026-07-08 (by @slazak)
 ### Changed

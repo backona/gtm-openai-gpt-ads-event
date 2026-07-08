@@ -5,6 +5,10 @@ homepage: "https://backona.com"
 documentation: "https://github.com/backona/gtm-openai-gpt-ads-event/blob/main/README.md"
 
 versions:
+  - sha: 70c4b1c2eb1dfbc4d6f20d416aa666c80988ef68
+    changeNotes: |
+      ### Changed
+      - Optional section labels simplified: redundant “(Optional)” removed from fields inside optional groups; Advanced options renamed to Advanced options (Optional)
   - sha: 1639ebe15da578e2f089525b471a794e172921fd
     changeNotes: |
       ### Changed

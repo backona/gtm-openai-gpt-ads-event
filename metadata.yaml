@@ -5,6 +5,10 @@ homepage: "https://backona.com"
 documentation: "https://github.com/backona/gtm-openai-gpt-ads-event/blob/main/README.md"
 
 versions:
+  - sha: 5dad39be248b83186b51009fa46ecf3ee276eeb9
+    changeNotes: |
+      ### Added
+      - Debug mode checkbox to enable measure payload logging in GTM preview and browser console
   - sha: 70c4b1c2eb1dfbc4d6f20d416aa666c80988ef68
     changeNotes: |
       ### Changed

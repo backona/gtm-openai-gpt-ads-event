@@ -276,7 +276,7 @@ ___TEMPLATE_PARAMETERS___
       {
         "type": "TEXT",
         "name": "planIdSubscription",
-        "displayName": "Plan ID (Optional)",
+        "displayName": "Plan ID",
         "simpleValueType": false,
         "valueHint": "pro_monthly",
         "help": "Optional plan identifier sent as plan_id for subscription conversions (plan_enrollment data shape). Example: pro_monthly."
@@ -299,7 +299,7 @@ ___TEMPLATE_PARAMETERS___
       {
         "type": "TEXT",
         "name": "planIdTrial",
-        "displayName": "Plan ID (Optional)",
+        "displayName": "Plan ID",
         "simpleValueType": false,
         "valueHint": "pro_trial",
         "help": "Optional plan identifier sent as plan_id for trial conversions (plan_enrollment data shape). Example: pro_trial."
@@ -327,7 +327,7 @@ ___TEMPLATE_PARAMETERS___
       {
         "type": "TEXT",
         "name": "amount",
-        "displayName": "Amount (Optional)",
+        "displayName": "Amount",
         "simpleValueType": false,
         "valueHint": "2599",
         "help": "Optional conversion value. Use minor units (cents) by default, e.g. 2599 = $25.99 USD. Check x 100 when mapping major units from GA4 or similar (e.g. 25.99). Set Amount and Currency together when reporting revenue."
@@ -335,7 +335,7 @@ ___TEMPLATE_PARAMETERS___
       {
         "type": "CHECKBOX",
         "name": "amountMultiplyBy100",
-        "displayName": "Amount unit conversion (Optional)",
+        "displayName": "Amount unit conversion",
         "checkboxText": "x 100",
         "simpleValueType": true,
         "defaultValue": false,
@@ -344,7 +344,7 @@ ___TEMPLATE_PARAMETERS___
       {
         "type": "TEXT",
         "name": "currency",
-        "displayName": "Currency (Optional)",
+        "displayName": "Currency",
         "simpleValueType": false,
         "defaultValue": "USD",
         "valueHint": "USD",
@@ -422,7 +422,7 @@ ___TEMPLATE_PARAMETERS___
       {
         "type": "TEXT",
         "name": "ga4Items",
-        "displayName": "GA4 items (Optional)",
+        "displayName": "GA4 items",
         "simpleValueType": false,
         "valueHint": "{{items}}",
         "help": "Map the GA4 items array (item_id, item_name, price in major units, quantity, optional currency). Example source: ecommerce.items or items on a purchase event. Leave empty to omit contents.",
@@ -437,7 +437,7 @@ ___TEMPLATE_PARAMETERS___
       {
         "type": "SELECT",
         "name": "ga4ContentType",
-        "displayName": "Default content type (Optional)",
+        "displayName": "Default content type",
         "simpleValueType": true,
         "defaultValue": "product",
         "macrosInSelect": false,
@@ -469,13 +469,13 @@ ___TEMPLATE_PARAMETERS___
   {
     "type": "GROUP",
     "name": "advancedGroup",
-    "displayName": "Advanced options",
+    "displayName": "Advanced options (Optional)",
     "groupStyle": "ZIPPY_CLOSED",
     "subParams": [
       {
         "type": "TEXT",
         "name": "eventId",
-        "displayName": "Event ID (Optional)",
+        "displayName": "Event ID",
         "simpleValueType": false,
         "valueHint": "order_12345",
         "help": "Reuse the same ID when deduplicating browser and server events. See https://developers.openai.com/ads/measurement-pixel#deduplicate-browser-and-server-events"
@@ -483,7 +483,7 @@ ___TEMPLATE_PARAMETERS___
       {
         "type": "CHECKBOX",
         "name": "optOut",
-        "displayName": "Opt out of personalization (Optional)",
+        "displayName": "Opt out of personalization",
         "checkboxText": "Opt out of future user-level personalization",
         "simpleValueType": true,
         "defaultValue": false,

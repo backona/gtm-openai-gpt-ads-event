@@ -13,13 +13,20 @@ This repository publishes **OpenAI ChatGPT Ads Event** ([gtm-openai-gpt-ads-even
 | [**OpenAI ChatGPT Ads Event**](https://github.com/backona/gtm-openai-gpt-ads-event) | Send `oaiq('measure', …)` conversion events |
 | [OpenAI ChatGPT Ads Configuration](https://github.com/backona/gtm-openai-gpt-ads-config) | Load SDK and run `oaiq('init', …)` |
 
+> **Not in the Community Template Gallery yet.** This template has been submitted to Google for gallery listing, but approval can take time. Until it appears in the gallery, install by importing [`template.tpl`](./template.tpl) from this repository (see below). Do not rely on searching the [Community Template Gallery](https://tagmanager.google.com/gallery) for now. The companion [Configuration](https://github.com/backona/gtm-openai-gpt-ads-config) template is in the same situation — import its `template.tpl` as well.
+
 ## Install
 
-1. Install **OpenAI ChatGPT Ads Configuration** from the [Community Template Gallery](https://tagmanager.google.com/gallery) or [gtm-openai-gpt-ads-config](https://github.com/backona/gtm-openai-gpt-ads-config). Set its trigger to **Initialization - All Pages**.
-2. Add **OpenAI ChatGPT Ads Event** from the [Community Template Gallery](https://tagmanager.google.com/gallery) or [gtm-openai-gpt-ads-event](https://github.com/backona/gtm-openai-gpt-ads-event), or import [`template.tpl`](./template.tpl) from this repository.
-3. Create a tag using **OpenAI ChatGPT Ads Event**.
-4. Choose a standard event (or **Custom**) and fill in optional value, plan, and event contents as needed.
-5. Set a conversion trigger (purchase, form submit, page view, etc.).
+**Preferred method: import [`template.tpl`](./template.tpl)**
+
+1. Install **OpenAI ChatGPT Ads Configuration** by importing `template.tpl` from [gtm-openai-gpt-ads-config](https://github.com/backona/gtm-openai-gpt-ads-config) (see that repo’s README). Set its trigger to **Initialization - All Pages**.
+2. In Google Tag Manager, go to **Templates** → **Tag Templates** → **New**.
+3. Open the menu (⋮) → **Import** → select [`template.tpl`](./template.tpl) from this repository → **Save**.
+4. Create a tag using **OpenAI ChatGPT Ads Event**.
+5. Choose a standard event (or **Custom**) and fill in optional value, plan, and event contents as needed.
+6. Set a conversion trigger (purchase, form submit, page view, etc.).
+
+**Later (after Google approval):** you will also be able to add both templates from the [Community Template Gallery](https://tagmanager.google.com/gallery). Until then, use the `template.tpl` import above.
 
 Supported JavaScript Pixel events: `page_viewed`, `contents_viewed`, `items_added`, `checkout_started`, `order_created`, `lead_created`, `registration_completed`, `appointment_scheduled`, `subscription_created`, `trial_started`, and custom events. See [send events](https://developers.openai.com/ads/measurement-pixel#send-events).
 

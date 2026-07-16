@@ -10,6 +10,11 @@ Do not edit the NEW_VERSION and VERSION_DATE fields, they will be updated automa
 ## [<NEW_VERSION>] - <VERSION_DATE>
 ### Added
 ### Changed
+### Fixed
+
+## [1.1.3] - 2026-07-16 (by @slazak)
+### Added
+### Changed
 - Install docs prioritize `template.tpl` import; note Community Template Gallery submission is pending Google approval
 ### Fixed
 

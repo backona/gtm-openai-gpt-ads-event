@@ -8,15 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 Do not edit the NEW_VERSION and VERSION_DATE fields, they will be updated automatically by the Github Action script.
 
 ## [<NEW_VERSION>] - <VERSION_DATE>
-### Added
-### Changed
 ### Fixed
+- Log a clear console error when `window.oaiq` exists but is not a function (includes `oaiqType`) instead of a silent GTM exception
 
 ## [1.1.3] - 2026-07-16 (by @slazak)
-### Added
 ### Changed
 - Install docs prioritize `template.tpl` import; note Community Template Gallery submission is pending Google approval
-### Fixed
 
 ## [1.1.2] - 2026-07-08 (by @slazak)
 ### Added

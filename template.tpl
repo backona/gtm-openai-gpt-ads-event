@@ -528,11 +528,15 @@ ___SANDBOXED_JS_FOR_WEB_TEMPLATE___
  * Sends oaiq('measure', ...) conversion events via the OpenAI Ads Measurement Pixel.
  */
 const copyFromWindow = require('copyFromWindow');
+const getType = require('getType');
 const logToConsole = require('logToConsole');
 
 const OAIQ_MISSING_MESSAGE =
   'Backona - backona.com: OpenAI ChatGPT Ads Event failed - oaiq is not available.\n' +
   'Add the Backona - backona.com: OpenAI ChatGPT Ads Configuration tag with trigger Initialization — All Pages first.';
+const OAIQ_NOT_FUNCTION_MESSAGE =
+  'Backona - backona.com: OpenAI ChatGPT Ads Event failed - window.oaiq exists but is not a function.\n' +
+  'Another script may have overwritten oaiq. Ensure only the OpenAI ChatGPT Ads Configuration tag initializes the pixel.';
 const MEASURE_PREVIEW_PREFIX =
   'Backona - backona.com: OpenAI ChatGPT Ads Event — oaiq("measure", ...) payload (GTM preview)';
 
@@ -959,6 +963,12 @@ if (eventName === 'custom' && trimValue(data.customEventName) === '') {
 const oaiq = copyFromWindow('oaiq');
 if (!oaiq) {
   logToConsole(OAIQ_MISSING_MESSAGE);
+  data.gtmOnFailure();
+  return;
+}
+if (getType(oaiq) !== 'function') {
+  logToConsole(OAIQ_NOT_FUNCTION_MESSAGE);
+  logToConsole({ oaiqType: getType(oaiq) });
   data.gtmOnFailure();
   return;
 }

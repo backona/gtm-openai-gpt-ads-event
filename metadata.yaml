@@ -5,6 +5,10 @@ homepage: "https://backona.com"
 documentation: "https://github.com/backona/gtm-openai-gpt-ads-event/blob/main/README.md"
 
 versions:
+  - sha: 7f3c44706f165897426bf1ec9d14e02fc93246b3
+    changeNotes: |
+      ### Fixed
+      - Log a clear console error when `window.oaiq` exists but is not a function (includes `oaiqType`) instead of a silent GTM exception
   - sha: 5dad39be248b83186b51009fa46ecf3ee276eeb9
     changeNotes: |
       ### Added
